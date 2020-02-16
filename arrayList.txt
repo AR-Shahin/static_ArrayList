@@ -1,0 +1,116 @@
+// Documentation
+
+/*  print_value : print all items in array
+    print_index : print index and position [must use search function]
+    delete_index : delete index
+    delete_iteam : delete a value
+
+*/
+
+#include<stdio.h>
+#define sucess_value 999
+#define null_value -999
+int list[5];
+int lenght = 0;
+
+//insert value in a array
+int insert(int val)
+{
+    if(lenght>5)
+    {
+        return null_value;
+    }
+    list[lenght] = val;
+    lenght ++;
+    return sucess_value;
+}
+// print the values of array
+void print_value()
+{
+    for(int i =0;i<lenght;i++)
+    {
+        printf("\n%d ",list[i]);
+    }
+
+}
+// print the index of searching value
+void print_index(int index)
+{
+    if(index == -999)
+    {
+        printf("unvalid value !");
+    }
+    else{
+          printf("index = %d",index);
+          printf("\nposition = %d",index+1);
+    }
+}
+// error text
+void error_text()
+{
+    printf("unvalid iteam !!");
+}
+// check function
+void check(int iteam)
+{
+    if(iteam == 999)
+    {
+        printf("Success!! \n");
+    }
+    else{
+        printf("failed!! \n");
+    }
+}
+// search a value
+int search(int val)
+{
+    int i;
+    for(i=0;i<lenght;i++)
+    {
+        if(list[i] == val)
+        {
+            return i;
+        }
+    }
+
+    return null_value;
+
+}
+// delete index
+int delete_index(int index)
+{
+    if(index >=lenght || index<0)
+    {
+        return null_value;
+    }
+    list[index] = list[lenght-1];
+    lenght--;
+    return sucess_value;
+}
+// delete item
+int delete_iteam(int val)
+{
+    int index;
+    index = search(val);
+    if(index == null_value)
+    {
+        error_text();
+    }
+    else{
+         int temp = delete_index(index);
+        print_value();
+    }
+
+
+}
+int main()
+{
+    int temp,index;
+    temp = insert(10);
+    temp = insert(20);
+    temp = insert(30);
+    temp = insert(40);
+    temp = insert(50);
+    temp = insert(60);
+    return 0;
+}
