@@ -100,6 +100,17 @@ int delete_iteam(int val)
         print_value();
     }
 }
+void insertAt(int pos,int val)
+{
+    pos = pos -1;
+    if(pos>lenght)
+    {
+        error_text();
+    }
+    list[pos] = val;
+    print_value();
+}
+ int pos,change_val;
 
 void recerse()
 {
@@ -135,6 +146,11 @@ void recerse()
         check(delete_index(del));
         printf("\nafter deleting the index is %d :",del);
         print_value();
+        printf("\nEnter position : ");
+    scanf("%d",&pos);
+    printf("\nEnter value : ");
+    scanf("%d",&change_val);
+    insertAt(pos,change_val);
     default:
         printf("\ninvalid input!!");
     }
@@ -171,6 +187,11 @@ int main()
     printf("\nafter deleting the index is %d :",del);
     print_value();
     printf("\n");
+    printf("\nEnter insert position : ");
+    scanf("%d",&pos);
+    printf("\nEnter changing value : ");
+    scanf("%d",&change_val);
+    insertAt(pos,change_val);
     recerse();
     return 0;
 }
