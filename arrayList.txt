@@ -108,10 +108,37 @@ void insertAt(int pos,int val)
         error_text();
     }
     list[pos] = val;
+    printf("\nafter changing value : ");
     print_value();
 }
  int pos,change_val;
 
+ int maximum(int a[],int lenght)
+ {
+     int max,i ;
+     max = a[0];
+     for(i=0;i<lenght;i++)
+     {
+         if(max<a[i])
+         {
+             max = a[i];
+         }
+     }
+     return max;
+ }
+int minimum(int a[],int lenght)
+ {
+     int min,i;
+     min = a[0];
+     for(i=0;i<lenght;i++)
+     {
+         if(min>a[i])
+         {
+             min = a[i];
+         }
+     }
+     return min;
+ }
 void recerse()
 {
     printf("\n=============================================");
@@ -151,6 +178,10 @@ void recerse()
     printf("\nEnter value : ");
     scanf("%d",&change_val);
     insertAt(pos,change_val);
+    int m =  maximum(list,lenght);
+    int n =  minimum(list,lenght);
+    printf("\nMaximum  = %d",m);
+    printf("\nMinimum  = %d",n);
     default:
         printf("\ninvalid input!!");
     }
@@ -192,10 +223,10 @@ int main()
     printf("\nEnter changing value : ");
     scanf("%d",&change_val);
     insertAt(pos,change_val);
+    int m =  maximum(list,lenght);
+    int n =  minimum(list,lenght);
+    printf("\nMaximum  = %d",m);
+    printf("\nMinimum  = %d",n);
     recerse();
     return 0;
 }
-
-
-
-
